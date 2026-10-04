@@ -418,6 +418,21 @@
   .challenge-slide .challenge-table thead th:nth-child(2) { width: 30%; }
   .challenge-slide .challenge-table tbody th { background: transparent; border-bottom: 1px solid var(--surface2); color: var(--accent); }
   .challenge-slide .challenge-table tbody tr:last-child th { border-bottom: none; }
+
+  /* Report figures, results slides 12 and 13 */
+  .report-figure-grid { display:grid; grid-template-columns:1fr 1.8fr; gap:20px; align-items:stretch; }
+  .report-figure { margin:0; padding:16px; background:#fff; border:1px solid var(--surface2); border-radius:var(--radius); }
+  .report-figure img { display:block; width:100%; height:340px; max-height:43vh; object-fit:contain; }
+  .report-figure figcaption { margin-top:12px; font-size:.8rem; line-height:1.5; color:var(--text2); }
+  .report-figure-single { max-width:1040px; margin:0 auto; }
+  .report-figure-single img { height:auto; max-height:56vh; }
+  .report-source { margin-top:14px; font-size:.76rem; line-height:1.5; color:var(--text3); }
+  @media (max-width:900px) {
+    .report-figure-grid { gap:12px; }
+    .report-figure { padding:10px; }
+    .report-figure figcaption { font-size:.72rem; }
+  }
+
 </style>
 </head>
 <body>
@@ -862,171 +877,41 @@ $$+ \gamma^{H-1}\underbrace{\sum_{i,w}\bigl[\gamma^- \delta^{-,H}_{i,w} + \gamma
 <div class="slide">
   <div class="slide-inner">
     <p class="section-label" style="color:var(--accent3);">Section 4 — Results</p>
-    <h2 style="margin-bottom:10px;">How Does the <span class="accent">MILP Model Perform?</span></h2>
-
-    <div style="display:grid; grid-template-columns:1.05fr .95fr; gap:20px; align-items:start;">
-
-      <!-- LEFT: total cost horizontal bars -->
-      <div class="card">
-        <h3 style="margin-bottom:8px;">Total Cost by Model (HKD)</h3>
-        <p style="font-size:.8rem; color:var(--text3); margin-bottom:12px;">Ordered by performance — MILP achieves the lowest total cost across the simulation.</p>
-        <div style="display:flex; flex-direction:column; gap:11px;">
-          <div>
-            <div style="display:flex; justify-content:space-between; font-size:.82rem; margin-bottom:4px;">
-              <span style="color:var(--accent); font-weight:600;">MILP (Our method)</span><strong>536,969</strong>
-            </div>
-            <div style="height:20px; background:#ece8e1; border-radius:999px; overflow:hidden;">
-              <div style="width:65.0%; height:100%; background:linear-gradient(90deg,var(--accent),#9fd7c8); border-radius:999px;"></div>
-            </div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; font-size:.82rem; margin-bottom:4px;">
-              <span style="color:var(--accent2); font-weight:600;">Actual Ops</span><strong>580,299</strong>
-            </div>
-            <div style="height:20px; background:#ece8e1; border-radius:999px; overflow:hidden;">
-              <div style="width:70.2%; height:100%; background:linear-gradient(90deg,#8a67d6,#bea9f5); border-radius:999px;"></div>
-            </div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; font-size:.82rem; margin-bottom:4px;">
-              <span style="font-weight:600;">Greedy</span><strong>711,015</strong>
-            </div>
-            <div style="height:20px; background:#ece8e1; border-radius:999px; overflow:hidden;">
-              <div style="width:86.1%; height:100%; background:linear-gradient(90deg,#7b8aa2,#b8c2d1); border-radius:999px;"></div>
-            </div>
-          </div>
-          <div>
-            <div style="display:flex; justify-content:space-between; font-size:.82rem; margin-bottom:4px;">
-              <span style="color:var(--warn); font-weight:600;">Rule-Based</span><strong>826,109</strong>
-            </div>
-            <div style="height:20px; background:#ece8e1; border-radius:999px; overflow:hidden;">
-              <div style="width:100%; height:100%; background:linear-gradient(90deg,#d97a2b,#f0b37a); border-radius:999px;"></div>
-            </div>
-          </div>
-        </div>
-        <div class="note-box" style="margin-top:10px; padding:9px 13px;">
-          <p style="font-size:.76rem;">CT transport (largely fixed): MILP 511,600 · Greedy 457,900 · Rule-Based &amp; Actual 514,800 HKD. Zero backlog and zero CT overstay in all four models.</p>
-        </div>
-      </div>
-
-      <!-- RIGHT: EX cost breakdown — proportional bar heights -->
-      <div class="card card-accent">
-        <h3 style="margin-bottom:4px;">External Cost Breakdown (HKD)</h3>
-        <p style="font-size:.79rem; color:var(--text3); margin-bottom:10px;">Bar height is proportional to total EX cost. EX = Holding + Retrieval + Offloading.</p>
-
-        <!-- Chart area -->
-        <div style="display:flex; gap:14px; align-items:flex-end; height:220px; border-bottom:2px solid var(--surface2); padding:0 4px;">
-
-          <!-- MILP: total 27,014 → height 19px (27014/311309*220) -->
-          <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">
-            <div style="font-size:.7rem; font-weight:700; color:var(--accent); margin-bottom:3px;">27,014</div>
-            <div style="width:100%; max-width:54px; height:19px; display:flex; flex-direction:column; border-radius:4px 4px 0 0; overflow:hidden;">
-              <div style="flex:17.5; background:#b784f7;"></div>
-              <div style="flex:10.8; background:#f3a64f;"></div>
-              <div style="flex:71.7; background:#16a085;"></div>
-            </div>
-          </div>
-
-          <!-- Actual: total 45,541 → height 32px (45541/311309*220) -->
-          <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">
-            <div style="font-size:.7rem; font-weight:700; color:var(--accent2); margin-bottom:3px;">45,541</div>
-            <div style="width:100%; max-width:54px; height:32px; display:flex; flex-direction:column; border-radius:4px 4px 0 0; overflow:hidden;">
-              <div style="flex:26.8; background:#b784f7;"></div>
-              <div style="flex:16.4; background:#f3a64f;"></div>
-              <div style="flex:56.9; background:#16a085;"></div>
-            </div>
-          </div>
-
-          <!-- Greedy: total 253,116 → height 179px (253116/311309*220) -->
-          <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">
-            <div style="font-size:.7rem; font-weight:700; color:var(--text2); margin-bottom:3px;">253,116</div>
-            <div style="width:100%; max-width:54px; height:179px; display:flex; flex-direction:column; border-radius:4px 4px 0 0; overflow:hidden;">
-              <div style="flex:8.5; background:#b784f7;"></div>
-              <div style="flex:35.3; background:#f3a64f;"></div>
-              <div style="flex:56.2; background:#16a085;"></div>
-            </div>
-          </div>
-
-          <!-- Rule-Based: total 311,309 → height 220px (max) -->
-          <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">
-            <div style="font-size:.7rem; font-weight:700; color:var(--warn); margin-bottom:3px;">311,309</div>
-            <div style="width:100%; max-width:54px; height:220px; display:flex; flex-direction:column; border-radius:4px 4px 0 0; overflow:hidden; box-shadow:0 0 0 2px rgba(212,122,10,.3);">
-              <div style="flex:2.1; background:#b784f7;"></div>
-              <div style="flex:23.0; background:#f3a64f;"></div>
-              <div style="flex:74.9; background:#16a085;"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- X-axis labels -->
-        <div style="display:flex; gap:14px; margin-top:6px;">
-          <div style="flex:1; text-align:center; font-size:.78rem; font-weight:700; color:var(--accent);">MILP (Our method)</div>
-          <div style="flex:1; text-align:center; font-size:.78rem; font-weight:700; color:var(--accent2);">Actual</div>
-          <div style="flex:1; text-align:center; font-size:.78rem; font-weight:700; color:var(--text2);">Greedy</div>
-          <div style="flex:1; text-align:center; font-size:.78rem; font-weight:700; color:var(--warn);">Rule-Based</div>
-        </div>
-
-        <!-- Legend -->
-        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:10px; font-size:.76rem; color:var(--text2);">
-          <div style="display:flex; align-items:center; gap:5px;"><span style="width:11px; height:11px; border-radius:3px; background:#16a085; display:inline-block;"></span>EX Holding</div>
-          <div style="display:flex; align-items:center; gap:5px;"><span style="width:11px; height:11px; border-radius:3px; background:#f3a64f; display:inline-block;"></span>EX Retrieval</div>
-          <div style="display:flex; align-items:center; gap:5px;"><span style="width:11px; height:11px; border-radius:3px; background:#b784f7; display:inline-block;"></span>EX Offloading</div>
-        </div>
-      </div>
+    <h2>Modelled Cost &amp; <span class="accent">Inventory Positioning</span></h2>
+    <div class="report-figure-grid">
+      <figure class="report-figure">
+        <img src="report-figure-2.png" alt="Figure 2: Modelled total operating-cost difference from reconstructed historical operation. Proposed model minus 27.1%, Greedy minus 13.6%, Rule-based plus 11.7%.">
+        <figcaption><strong>Figure 2.</strong> Modelled total operating-cost difference from the reconstructed historical operation.</figcaption>
+      </figure>
+      <figure class="report-figure">
+        <img src="report-figure-3.png" alt="Figure 3: Box plots of North Point and Tuen Mun capacity utilisation and paid external-warehouse inventory share for the proposed, historical, greedy and rule-based policies.">
+        <figcaption><strong>Figure 3.</strong> Post-decision capacity utilisation and EX inventory share over 26 working days. Labels show policy medians.</figcaption>
+      </figure>
     </div>
-
-    <!-- Why EX cost is the true measure — below both charts -->
-    <div class="card card-orange" style="padding:10px 16px; margin-top:12px; display:flex; gap:12px; align-items:flex-start;">
-      <div style="flex-shrink:0; color:var(--warn); margin-top:3px;">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="5.5" x2="8" y2="8.5"/><circle cx="8" cy="11" r=".6" fill="currentColor" stroke="none"/></svg>
-      </div>
-      <div>
-        <div style="font-size:.76rem; font-weight:700; color:var(--warn); text-transform:uppercase; letter-spacing:.06em; margin-bottom:3px;">Why External Warehouse Cost Is the True Performance Measure</div>
-        <p style="font-size:.79rem; color:var(--text2); line-height:1.55; margin:0;">CT transport cost is unavoidable — containers must eventually be collected regardless of the model used, and only the timing differs. External warehouse (EX) costs, by contrast, are directly determined by decision quality and are wholly avoidable through better planning. Since all four models achieve <strong>zero backlog and zero CT overstay</strong>, minimising EX-related expenditure is the primary dimension on which model performance should be assessed.</p>
-      </div>
-    </div>
+    <p class="report-source">Source: Towngas Industry Application Case Study, Figures 2–3. Backtest: January 2026, 26 working days.</p>
     <div class="slide-abbr" style="margin-top:10px;">
-      <strong>MILP</strong> Mixed-Integer Linear Programme &nbsp;·&nbsp; <strong>CT</strong> Cargo Terminal &nbsp;·&nbsp; <strong>EX</strong> External Warehouse
+      <strong>NP</strong> North Point &nbsp;·&nbsp; <strong>TM</strong> Tuen Mun &nbsp;·&nbsp; <strong>EX</strong> External Warehouse
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     SLIDE 9b — EVALUATION: CUMULATIVE COST + INVENTORY CHARTS
-═══════════════════════════════════════════════════════════════ -->
+<!-- Results: operating-cost composition from report Figure 4 -->
 <div class="slide">
   <div class="slide-inner">
     <p class="section-label" style="color:var(--accent3);">Section 4 — Results</p>
-    <h2>Cumulative Cost &amp; <span class="accent">EX Inventory Over Time</span></h2>
-    <div class="grid2" style="gap:18px; align-items:start;">
-      <div>
-        <img src="cumulative_cost.png" alt="Cumulative cost over time"
-             style="width:100%; border-radius:var(--radius); border:1px solid var(--surface2);"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="img-placeholder" style="display:none; min-height:180px;">
-          <div class="ph-icon">📈</div>
-          <div>Cumulative cost chart<br><code style="font-size:.72rem;">cumulative_cost.png</code></div>
-        </div>
-      </div>
-      <div>
-        <img src="ex_inventory_cbm.png" alt="EX inventory level over time"
-             style="width:100%; border-radius:var(--radius); border:1px solid var(--surface2);"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="img-placeholder" style="display:none; min-height:180px;">
-          <div class="ph-icon">📦</div>
-          <div>EX inventory level chart<br><code style="font-size:.72rem;">ex_inventory_cbm.png</code></div>
-        </div>
-      </div>
-    </div>
+    <h2>Operating-Cost <span class="accent">Composition by Policy</span></h2>
+    <figure class="report-figure report-figure-single">
+      <img src="report-figure-4.png" alt="Figure 4: Operating-cost composition by policy, historical total equals 100. Total cost indices: proposed model 72.9, greedy 86.4, rule-based 111.7, historical operation 100.0.">
+      <figcaption><strong>Figure 4.</strong> Operating-cost composition by policy on a confidentiality-safe scale (historical total = 100).</figcaption>
+    </figure>
+    <p class="report-source">Source: Towngas Industry Application Case Study, Figure 4.</p>
     <div class="slide-abbr" style="margin-top:10px;">
-      <strong>EX</strong> External Warehouse
+      <strong>CT</strong> Cargo Terminal &nbsp;·&nbsp; <strong>EX</strong> External Warehouse
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     SLIDE 10 — PROTOTYPE DEMO
-═══════════════════════════════════════════════════════════════ -->
+<!-- Prototype demo -->
 <div class="slide">
   <div class="slide-inner">
     <p class="section-label" style="color:var(--warn);">Section 5 — Prototype</p>
@@ -1289,8 +1174,8 @@ const slideNames = [
   'Rolling-Horizon MILP Model',
   'Does This Work in Practice?',
   'Baseline Models',
-  'Results: Cost Comparison',
-  'Results: Charts',
+  'Results: Cost & Inventory Positioning',
+  'Results: Operating-Cost Composition',
   'Prototype Demo',
   'Limitations & Improvements',
   'Thank You',
