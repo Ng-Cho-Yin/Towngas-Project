@@ -433,6 +433,18 @@
     .report-figure figcaption { font-size:.72rem; }
   }
 
+
+  .future-demand-grid { gap:20px; }
+  .future-demand-grid .card { padding:24px; }
+  .future-demand-grid h3 { font-size:1.12rem; line-height:1.4; margin-bottom:16px; }
+  .future-demand-grid li { font-size:1rem; line-height:1.65; margin-bottom:12px; }
+  .future-demand-grid li:last-child { margin-bottom:0; }
+  @media (max-height:740px) {
+    .future-demand-grid .card { padding:18px; }
+    .future-demand-grid h3 { font-size:1rem; margin-bottom:12px; }
+    .future-demand-grid li { font-size:.9rem; line-height:1.5; }
+  }
+
 </style>
 </head>
 <body>
@@ -978,150 +990,46 @@ $$+ \gamma^{H-1}\underbrace{\sum_{i,w}\bigl[\gamma^- \delta^{-,H}_{i,w} + \gamma
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════
-     SLIDE 12 — LIMITATIONS & IMPROVEMENTS (part 1)
+     SLIDE 15 — FUTURE DEVELOPMENT: WALK-IN DEMAND
 ═══════════════════════════════════════════════════════════════ -->
-<div class="slide">
+<!-- Proposed future methods: https://otexts.com/fpp3/useful-predictors.html
+     https://otexts.com/fpp3/prediction-intervals.html
+     https://otexts.com/fpp3/tscv.html
+     https://doi.org/10.1287/msom.2015.0520 -->
+<div class="slide future-demand-slide">
   <div class="slide-inner">
-    <p class="section-label" style="color:var(--pink);">Section 6 — Limitations &amp; Future Work</p>
-    <div style="display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:10px;">
-      <h2 style="margin:0;">Current Limitations &amp; <span class="accent">Further Developments</span></h2>
-      <div class="lim-legend">
-        <div class="lim-leg-item"><span class="lim-leg-dot" style="background:var(--red);"></span>Data</div>
-        <div class="lim-leg-item"><span class="lim-leg-dot" style="background:var(--warn);"></span>Scope</div>
-        <div class="lim-leg-item"><span class="lim-leg-dot" style="background:var(--accent2);"></span>Planning</div>
-        <div class="lim-leg-item"><span class="lim-leg-dot" style="background:var(--accent);"></span>Prototype</div>
-        <div class="lim-leg-item"><span class="lim-leg-dot" style="background:var(--accent3);"></span>Integration</div>
-      </div>
-    </div>
+    <p class="section-label" style="color:var(--pink);">Section 6 — Future Development</p>
+    <h2>Better Modelling of <span class="accent">Walk-in Demand</span></h2>
+    <p class="subtitle" style="margin-bottom:26px;">Extend the rolling-horizon model to balance walk-in service levels and storage cost.</p>
 
-    <div class="lim-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:11px; align-items:start;">
-
-      <!-- ── Limitations row label ── -->
-      <div style="grid-column:1/-1; display:flex; align-items:center; gap:8px; margin-bottom:-2px;">
-        <span style="font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:var(--red);">Limitations</span>
-        <div style="flex:1; height:1px; background:rgba(201,61,61,.2);"></div>
-      </div>
-
-      <!-- L1: CT Arrival Date -->
-      <div class="card card-red">
-        <div class="lim-header">
-          <div class="lim-icon" style="background:rgba(201,61,61,.1); color:var(--red);">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="8" cy="8.5" r="5.5"/><polyline points="8,5.5 8,8.5 10.5,10"/><line x1="5" y1="1.5" x2="11" y2="1.5"/>
-            </svg>
-          </div>
-          <div style="flex:1; min-width:0;">
-            <span class="lim-badge" style="background:rgba(201,61,61,.1); color:var(--red); border:1px solid rgba(201,61,61,.25);">L1</span>
-            <h3 style="color:var(--red); font-size:.9rem; margin:0;">CT Arrival Date is Estimated</h3>
-          </div>
-        </div>
-        <p style="font-size:.81rem; margin-bottom:0; color:var(--text2);">Arrival date $\tau_c$ is inferred from goods receipt records — digital invoice dates were unavailable, so simulation uses an estimated proxy.</p>
-        <div class="lim-divider">↳ Improvement</div>
-        <ul class="lim-list">
-          <li><strong>Run with real data:</strong> verified invoice dates yield more robust benchmark results</li>
+    <div class="grid3 future-demand-grid">
+      <div class="card card-accent">
+        <h3>Demand Patterns</h3>
+        <ul>
+          <li>Test <strong>seasonality, day-of-week and holiday effects</strong> using a longer demand history.</li>
+          <li>Account for differences across <strong>SKUs and warehouses</strong>, including items with infrequent demand.</li>
         </ul>
       </div>
-
-      <!-- L2: APPL-Only Scope -->
-      <div class="card card-orange">
-        <div class="lim-header">
-          <div class="lim-icon" style="background:rgba(212,122,10,.1); color:var(--warn);">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M13.5 5.5v7a1 1 0 01-1 1h-9a1 1 0 01-1-1v-7"/><path d="M1 3.5h14l-1.5 2h-11z"/><line x1="8" y1="3.5" x2="8" y2="13.5"/>
-            </svg>
-          </div>
-          <div style="flex:1; min-width:0;">
-            <span class="lim-badge" style="background:rgba(212,122,10,.1); color:var(--warn); border:1px solid rgba(212,122,10,.25);">L2</span>
-            <h3 style="color:var(--warn); font-size:.9rem; margin:0;">APPL-Only, Incomplete Capacity Picture</h3>
-          </div>
-        </div>
-        <p style="font-size:.81rem; margin-bottom:0; color:var(--text2);">APPL shares NP/TM space with spare parts and white goods. Without full CBM data for other categories, capacity constraints are estimated and may not reflect true utilisation.</p>
-        <div class="lim-divider">↳ Improvement</div>
-        <ul class="lim-list">
-          <li><strong>Expand stock scope:</strong> add CBM data for spare parts and white goods in NP/TM</li>
-        </ul>
-      </div>
-
-      <!-- L3: Rolling Horizon Length -->
       <div class="card card-purple">
-        <div class="lim-header">
-          <div class="lim-icon" style="background:rgba(108,79,207,.1); color:var(--accent2);">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="1.5" y="3" width="13" height="11" rx="1.5"/><line x1="1.5" y1="7" x2="14.5" y2="7"/><line x1="5" y1="1.5" x2="5" y2="4.5"/><line x1="11" y1="1.5" x2="11" y2="4.5"/>
-            </svg>
-          </div>
-          <div style="flex:1; min-width:0;">
-            <span class="lim-badge" style="background:rgba(108,79,207,.1); color:var(--accent2); border:1px solid rgba(108,79,207,.25);">L3</span>
-            <h3 style="color:var(--accent2); font-size:.9rem; margin:0;">7-Day Rolling Horizon</h3>
-          </div>
-        </div>
-        <p style="font-size:.81rem; margin-bottom:0; color:var(--text2);">A 7-day lookahead may miss longer-term demand patterns, procurement lead times, and seasonal peaks.</p>
-        <div class="lim-divider">↳ Improvement</div>
-        <ul class="lim-list">
-          <li><strong>Extend horizon:</strong> test 14-day lookahead for better forward demand anticipation</li>
-          <li><strong>Trade-off analysis:</strong> benchmark quality gain vs. solve time at 14 days</li>
+        <h3 style="color:var(--accent2);">Demand Hidden by Stockouts</h3>
+        <ul>
+          <li>Distinguish <strong>observed sales from underlying demand</strong> when stock is unavailable.</li>
+          <li>Use stockout records and unmet customer requests to improve walk-in demand estimates.</li>
         </ul>
       </div>
-
-      <!-- ── Further Developments row label ── -->
-      <div style="grid-column:1/-1; display:flex; align-items:center; gap:8px; margin-top:2px; margin-bottom:-2px;">
-        <span style="font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:var(--accent);">Further Developments</span>
-        <div style="flex:1; height:1px; background:rgba(26,109,212,.2);"></div>
+      <div class="card card-green">
+        <h3 style="color:var(--accent3);">Uncertainty in Inventory Decisions</h3>
+        <ul>
+          <li>Develop demand scenarios for the <strong>rolling-horizon allocation model</strong>.</li>
+          <li>Evaluate the trade-off between <strong>walk-in service levels</strong> and external-warehouse cost.</li>
+        </ul>
       </div>
-
-      <!-- F1 + F2 in a nested 2-col grid spanning all 3 columns -->
-      <div style="grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:11px;">
-
-        <!-- F1: Parameter Flexibility -->
-        <div class="card card-accent">
-          <div class="lim-header">
-            <div class="lim-icon" style="background:rgba(26,109,212,.1); color:var(--accent);">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                <line x1="1" y1="4" x2="15" y2="4"/><line x1="1" y1="8" x2="15" y2="8"/><line x1="1" y1="12" x2="15" y2="12"/>
-                <circle cx="5" cy="4" r="2" fill="white" stroke="currentColor" stroke-width="1.8"/>
-                <circle cx="11" cy="8" r="2" fill="white" stroke="currentColor" stroke-width="1.8"/>
-                <circle cx="7" cy="12" r="2" fill="white" stroke="currentColor" stroke-width="1.8"/>
-              </svg>
-            </div>
-            <div style="flex:1; min-width:0;">
-              <span class="lim-badge" style="background:rgba(26,109,212,.1); color:var(--accent); border:1px solid rgba(26,109,212,.25);">F1</span>
-              <h3 style="color:var(--accent); font-size:.9rem; margin:0;">Hardcoded Cost &amp; Capacity Parameters</h3>
-            </div>
-          </div>
-          <p style="font-size:.81rem; margin-bottom:0; color:var(--text2);">Cost parameters and capacity limits are hardcoded — not adjustable through the Streamlit interface.</p>
-          <div class="lim-divider">↳ Development</div>
-          <ul class="lim-list">
-            <li><strong>Interactive parameter panel:</strong> configure cost rates, capacity limits, and horizon length at runtime</li>
-          </ul>
-        </div>
-
-        <!-- F2: Data Pipeline -->
-        <div class="card card-green">
-          <div class="lim-header">
-            <div class="lim-icon" style="background:rgba(10,143,111,.1); color:var(--accent3);">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <ellipse cx="8" cy="4" rx="5.5" ry="2"/><path d="M2.5 4v3c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2V4"/><path d="M2.5 7v3c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2V7"/>
-              </svg>
-            </div>
-            <div style="flex:1; min-width:0;">
-              <span class="lim-badge" style="background:rgba(10,143,111,.1); color:var(--accent3); border:1px solid rgba(10,143,111,.25);">F2</span>
-              <h3 style="color:var(--accent3); font-size:.9rem; margin:0;">Manual SAP/ERP Data Preparation</h3>
-            </div>
-          </div>
-          <p style="font-size:.81rem; margin-bottom:0; color:var(--text2);">Input format does not perfectly match raw SAP exports — manual data cleaning is required before each upload.</p>
-          <div class="lim-divider">↳ Development</div>
-          <ul class="lim-list">
-            <li><strong>Automated pipeline:</strong> read and clean directly from Towngas SAP exports</li>
-            <li><strong>Built-in validation:</strong> data-quality checks to guide users through upload</li>
-          </ul>
-        </div>
-
-      </div>
-
     </div>
-    <div class="slide-abbr" style="margin-top:10px;">
-      <strong>CT</strong> Cargo Terminal &nbsp;·&nbsp; <strong>APPL</strong> Appliance Goods &nbsp;·&nbsp; <strong>NP</strong> North Point &nbsp;·&nbsp; <strong>TM</strong> Tuen Mun &nbsp;·&nbsp; <strong>SAP</strong> Enterprise Resource Planning
+
+    <div class="note-box" style="margin-top:24px; padding:16px 20px;">
+      <p style="font-size:.98rem; line-height:1.6;"><strong>Next step:</strong> Collect longer SKU-location demand histories and stockout records, then evaluate forecast accuracy, lost sales and operating cost through rolling backtests.</p>
     </div>
+    <p style="margin-top:14px; font-size:.78rem; color:var(--text3);">Evidence basis: the current results cover one operating month. Seasonal effects remain to be tested.</p>
   </div>
 </div>
 
@@ -1177,7 +1085,7 @@ const slideNames = [
   'Results: Cost & Inventory Positioning',
   'Results: Operating-Cost Composition',
   'Prototype Demo',
-  'Limitations & Improvements',
+  'Future Development: Walk-in Demand',
   'Thank You',
 ];
 
@@ -1197,7 +1105,7 @@ const slideSectionMap = [
    3, // 11  Results: Cost Comparison
    3, // 12  Results: Charts
    4, // 13  Prototype Demo
-   5, // 14  Limitations & Improvements
+   5, // 14  Future Development: Walk-in Demand
   6, // 15  Thank You
 ];
 
@@ -1288,7 +1196,7 @@ go(0);
   <div class="section-node" data-section="2">3 · Model</div>
   <div class="section-node" data-section="3">4 · Results</div>
   <div class="section-node" data-section="4">5 · Prototype</div>
-  <div class="section-node" data-section="5">6 · Limitations</div>
+  <div class="section-node" data-section="5">6 · Future Development</div>
   <div class="section-node" data-section="6">Conclusion</div>
 </div>
 
