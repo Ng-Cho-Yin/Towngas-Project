@@ -996,15 +996,26 @@ $$+ \gamma^{H-1}\underbrace{\sum_{i,w}\bigl[\gamma^- \delta^{-,H}_{i,w} + \gamma
   <div class="slide-inner">
     <p class="section-label" style="color:var(--pink);">Section 6 — Future Development</p>
     <h2>Next <span class="accent">Steps</span></h2>
+    <p class="subtitle" style="margin-bottom:0;">Improve walk-in demand forecasts and connect the model to the company's daily planning workflow.</p>
 
-    <div class="grid2" style="gap:28px; margin-top:32px;">
+    <div class="grid2" style="gap:28px; margin-top:26px;">
       <div class="card card-accent" style="padding:32px;">
-        <h3 style="font-size:1.35rem; margin-bottom:16px;">Seasonality</h3>
-        <p style="font-size:1.15rem; line-height:1.65;">Incorporate seasonality into the walk-in demand model.</p>
+        <h3 style="font-size:1.35rem; margin-bottom:14px;">Seasonality in Walk-in Demand</h3>
+        <p style="font-size:1.05rem; line-height:1.6; margin-bottom:18px;">Extend the demand model to capture recurring changes in customer demand over time.</p>
+        <ul style="display:flex; flex-direction:column; gap:12px;">
+          <li style="font-size:1rem; line-height:1.6;">Use a longer demand history to identify <strong>weekly patterns and seasonal peaks</strong>.</li>
+          <li style="font-size:1rem; line-height:1.6;">Incorporate seasonal forecasts into the <strong>rolling-horizon model</strong> to plan inventory positioning ahead of demand.</li>
+          <li style="font-size:1rem; line-height:1.6;">Compare with the current forecasting approach to assess <strong>forecast accuracy, product availability and storage cost</strong>.</li>
+        </ul>
       </div>
       <div class="card card-green" style="padding:32px;">
-        <h3 style="font-size:1.35rem; margin-bottom:16px; color:var(--accent3);">ERP Integration</h3>
-        <p style="font-size:1.15rem; line-height:1.65;">Complete the interface with the company's ERP system.</p>
+        <h3 style="font-size:1.35rem; margin-bottom:14px; color:var(--accent3);">Interface with the Company's ERP</h3>
+        <p style="font-size:1.05rem; line-height:1.6; margin-bottom:18px;">Complete the ERP interface to support regular data updates and daily use of the optimisation tool.</p>
+        <ul style="display:flex; flex-direction:column; gap:12px;">
+          <li style="font-size:1rem; line-height:1.6;">Import the latest <strong>inventory, confirmed orders and container records</strong> with less manual preparation.</li>
+          <li style="font-size:1rem; line-height:1.6;">Align <strong>SKU and warehouse identifiers</strong> and validate incoming data before each optimisation run.</li>
+          <li style="font-size:1rem; line-height:1.6;">Make daily <strong>collection, transfer and external-warehouse recommendations</strong> available within the company's planning workflow for manager review.</li>
+        </ul>
       </div>
     </div>
   </div>
