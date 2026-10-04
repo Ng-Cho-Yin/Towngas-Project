@@ -595,7 +595,7 @@
 ═══════════════════════════════════════════════════════════════ -->
 <div class="slide example-slide challenge-slide">
   <div class="slide-inner">
-    <p class="section-label" style="color:var(--red);">Section 1 — Business Challenge</p>
+    <p class="section-label" style="color:var(--accent2);">Section 2 — Business Challenge</p>
     <h2>Why Is This Complex? <span class="accent">The Decisions Are Coupled</span></h2>
     <p class="example-scenario">Many SKUs share the same trucks and warehouse space. <strong>A decision for one order changes the capacity available for others</strong>, across locations and days.</p>
     <div class="card" style="padding:20px 26px;">
@@ -620,7 +620,7 @@
 ═══════════════════════════════════════════════════════════════ -->
 <div class="slide example-slide">
   <div class="slide-inner">
-    <p class="section-label" style="color:var(--red);">Section 1 — Business Challenge</p>
+    <p class="section-label" style="color:var(--accent2);">Section 2 — Business Challenge</p>
     <h2>The Cargo Terminal <span class="accent">Timing Trade-off</span></h2>
     <p class="example-scenario">The free storage period provides a useful buffer, but <strong>collection timing also affects warehouse congestion and delivery readiness</strong>.</p>
     <div class="grid3" style="gap:22px; align-items:stretch;">
@@ -777,7 +777,7 @@ $$+ \gamma^{H-1}\underbrace{\sum_{i,w}\bigl[\gamma^- \delta^{-,H}_{i,w} + \gamma
 ═══════════════════════════════════════════════════════════════ -->
 <div class="slide rolling-slide">
   <div class="slide-inner">
-    <p class="section-label" style="color:var(--accent2);">Section 2 — Proposed Solution</p>
+    <p class="section-label" style="color:var(--accent);">Section 3 — Rolling-Horizon Model</p>
     <h2>A <span class="accent">Rolling-Horizon MILP</span> Model</h2>
     <p class="rolling-intro">We formulate the problem as a <strong>mixed-integer linear optimisation model</strong>, updated each working day.</p>
     <div class="rolling-layout">
@@ -1012,7 +1012,6 @@ $$+ \gamma^{H-1}\underbrace{\sum_{i,w}\bigl[\gamma^- \delta^{-,H}_{i,w} + \gamma
         <p style="font-size:1.05rem; line-height:1.6; margin-bottom:18px;">Complete the ERP interface to support regular data updates and daily use of the optimisation tool.</p>
         <ul style="display:flex; flex-direction:column; gap:12px;">
           <li style="font-size:1rem; line-height:1.6;">Import the latest <strong>inventory, confirmed orders and container records</strong> with less manual preparation.</li>
-          <li style="font-size:1rem; line-height:1.6;">Construct a <strong>data pipeline</strong>.</li>
         </ul>
       </div>
     </div>
@@ -1081,11 +1080,11 @@ const slideSectionMap = [
    0, //  1  Distribution Network
    0, //  2  Cost Structure & Transport Capacity
    0, //  3  Project Orders & Walk-in Demand
-   0, //  4  Business Challenge: Coupled Decisions
-   0, //  5  Business Challenge: Collection Timing
+   1, //  4  Business Challenge: Coupled Decisions
+   1, //  5  Business Challenge: Collection Timing
    2, //  6  Theoretical Model: Formulation
    2, //  7  Theoretical Model: Constraints
-   1, //  8  Rolling-Horizon MILP Model
+   2, //  8  Rolling-Horizon MILP Model
    2, //  9  Does This Work in Practice?
    3, // 10  Baseline Models
    3, // 11  Results: Cost Comparison
@@ -1178,7 +1177,7 @@ go(0);
 <!-- Bottom section chevron bar -->
 <div class="section-flow" id="sectionFlow" aria-hidden="true">
   <div class="section-node" data-section="0">1 · Background</div>
-  <div class="section-node" data-section="1">2 · Solution</div>
+  <div class="section-node" data-section="1">2 · Business Challenge</div>
   <div class="section-node" data-section="2">3 · Model</div>
   <div class="section-node" data-section="3">4 · Results</div>
   <div class="section-node" data-section="4">5 · Prototype</div>
