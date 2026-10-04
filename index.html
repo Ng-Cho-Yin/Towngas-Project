@@ -990,46 +990,23 @@ $$+ \gamma^{H-1}\underbrace{\sum_{i,w}\bigl[\gamma^- \delta^{-,H}_{i,w} + \gamma
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════
-     SLIDE 15 — FUTURE DEVELOPMENT: WALK-IN DEMAND
+     SLIDE 15 — NEXT STEPS
 ═══════════════════════════════════════════════════════════════ -->
-<!-- Proposed future methods: https://otexts.com/fpp3/useful-predictors.html
-     https://otexts.com/fpp3/prediction-intervals.html
-     https://otexts.com/fpp3/tscv.html
-     https://doi.org/10.1287/msom.2015.0520 -->
 <div class="slide future-demand-slide">
   <div class="slide-inner">
     <p class="section-label" style="color:var(--pink);">Section 6 — Future Development</p>
-    <h2>Better Modelling of <span class="accent">Walk-in Demand</span></h2>
-    <p class="subtitle" style="margin-bottom:26px;">Extend the rolling-horizon model to balance walk-in service levels and storage cost.</p>
+    <h2>Next <span class="accent">Steps</span></h2>
 
-    <div class="grid3 future-demand-grid">
-      <div class="card card-accent">
-        <h3>Demand Patterns</h3>
-        <ul>
-          <li>Test <strong>seasonality, day-of-week and holiday effects</strong> using a longer demand history.</li>
-          <li>Account for differences across <strong>SKUs and warehouses</strong>, including items with infrequent demand.</li>
-        </ul>
+    <div class="grid2" style="gap:28px; margin-top:32px;">
+      <div class="card card-accent" style="padding:32px;">
+        <h3 style="font-size:1.35rem; margin-bottom:16px;">Seasonality</h3>
+        <p style="font-size:1.15rem; line-height:1.65;">Incorporate seasonality into the walk-in demand model.</p>
       </div>
-      <div class="card card-purple">
-        <h3 style="color:var(--accent2);">Demand Hidden by Stockouts</h3>
-        <ul>
-          <li>Distinguish <strong>observed sales from underlying demand</strong> when stock is unavailable.</li>
-          <li>Use stockout records and unmet customer requests to improve walk-in demand estimates.</li>
-        </ul>
-      </div>
-      <div class="card card-green">
-        <h3 style="color:var(--accent3);">Uncertainty in Inventory Decisions</h3>
-        <ul>
-          <li>Develop demand scenarios for the <strong>rolling-horizon allocation model</strong>.</li>
-          <li>Evaluate the trade-off between <strong>walk-in service levels</strong> and external-warehouse cost.</li>
-        </ul>
+      <div class="card card-green" style="padding:32px;">
+        <h3 style="font-size:1.35rem; margin-bottom:16px; color:var(--accent3);">ERP Integration</h3>
+        <p style="font-size:1.15rem; line-height:1.65;">Complete the interface with the company's ERP system.</p>
       </div>
     </div>
-
-    <div class="note-box" style="margin-top:24px; padding:16px 20px;">
-      <p style="font-size:.98rem; line-height:1.6;"><strong>Next step:</strong> Collect longer SKU-location demand histories and stockout records, then evaluate forecast accuracy, lost sales and operating cost through rolling backtests.</p>
-    </div>
-    <p style="margin-top:14px; font-size:.78rem; color:var(--text3);">Evidence basis: the current results cover one operating month. Seasonal effects remain to be tested.</p>
   </div>
 </div>
 
@@ -1085,7 +1062,7 @@ const slideNames = [
   'Results: Cost & Inventory Positioning',
   'Results: Operating-Cost Composition',
   'Prototype Demo',
-  'Future Development: Walk-in Demand',
+  'Next Steps',
   'Thank You',
 ];
 
@@ -1105,7 +1082,7 @@ const slideSectionMap = [
    3, // 11  Results: Cost Comparison
    3, // 12  Results: Charts
    4, // 13  Prototype Demo
-   5, // 14  Future Development: Walk-in Demand
+   5, // 14  Next Steps
   6, // 15  Thank You
 ];
 
