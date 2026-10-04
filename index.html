@@ -746,18 +746,6 @@ $$+ \gamma^{H-1}\underbrace{\sum_{i,w}\bigl[\gamma^- \delta^{-,H}_{i,w} + \gamma
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════
-     SLIDE 6c — DOES THIS WORK IN PRACTICE? (TRANSITION)
-═══════════════════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="slide-inner" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
-    <p class="section-label" style="color:var(--accent);">Section 3 — Mathematical Formulation</p>
-    <div style="font-size:clamp(1.8rem, 4vw, 3.2rem); font-weight:800; line-height:1.4; color:var(--text); max-width:800px;">
-      Does this theoretical model<br><span style="color:var(--accent);">work in practice?</span>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════════
      SLIDE 8 — ROLLING-HORIZON MILP OVERVIEW
 ═══════════════════════════════════════════════════════════════ -->
 <div class="slide rolling-slide">
@@ -800,6 +788,18 @@ $$+ \gamma^{H-1}\underbrace{\sum_{i,w}\bigl[\gamma^- \delta^{-,H}_{i,w} + \gamma
         <h3>External warehouse movements</h3>
         <p>Which goods to retrieve from or offload to the external warehouse.</p>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SLIDE 6c — DOES THIS WORK IN PRACTICE? (TRANSITION)
+═══════════════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-inner" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+    <p class="section-label" style="color:var(--accent);">Section 3 — Mathematical Formulation</p>
+    <div style="font-size:clamp(1.8rem, 4vw, 3.2rem); font-weight:800; line-height:1.4; color:var(--text); max-width:800px;">
+      Does this theoretical model<br><span style="color:var(--accent);">work in practice?</span>
     </div>
   </div>
 </div>
@@ -1167,77 +1167,6 @@ $$+ \gamma^{H-1}\underbrace{\sum_{i,w}\bigl[\gamma^- \delta^{-,H}_{i,w} + \gamma
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════
-     SLIDE 11b — BIG STATEMENT TO WIN TOWNGAS HEART
-═══════════════════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="slide-inner" style="text-align:center; justify-content:center; align-items:center;">
-    <div style="max-width:960px; margin:0 auto;">
-      <p class="section-label" style="color:var(--warn); text-align:left;">Section 5 — Integration</p>
-
-      <p style="font-size:.88rem; color:var(--text3); margin-bottom:12px; line-height:1.6; text-align:center;">
-        Model alone is not enough. Manager experience alone is not enough.
-      </p>
-      <p style="font-size:2.1rem; font-weight:800; margin-bottom:28px; text-align:center; line-height:1.2; background:linear-gradient(135deg,var(--accent),var(--accent3)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
-        Together, they outperform either.
-      </p>
-
-      <!-- MILP  +  Manager  =  Together -->
-      <div style="display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:18px; align-items:center;">
-
-        <!-- MILP Model -->
-        <div class="card" style="text-align:center; padding:26px 18px;">
-          <div style="display:flex; justify-content:center; margin-bottom:12px; color:var(--accent);">
-            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="8" y="8" width="18" height="18" rx="2.5"/>
-              <rect x="12.5" y="12.5" width="9" height="9" rx="1.5"/>
-              <line x1="14" y1="4" x2="14" y2="8"/><line x1="20" y1="4" x2="20" y2="8"/>
-              <line x1="14" y1="26" x2="14" y2="30"/><line x1="20" y1="26" x2="20" y2="30"/>
-              <line x1="4" y1="14" x2="8" y2="14"/><line x1="4" y1="20" x2="8" y2="20"/>
-              <line x1="26" y1="14" x2="30" y2="14"/><line x1="26" y1="20" x2="30" y2="20"/>
-            </svg>
-          </div>
-          <div style="font-weight:700; font-size:1.05rem; margin-bottom:8px;">MILP Model</div>
-          <div style="font-size:.85rem; color:var(--text2); line-height:1.6;">7-day lookahead · cost-optimal timing · consistent decisions every morning</div>
-        </div>
-
-        <div style="font-size:2.4rem; font-weight:900; color:var(--accent); line-height:1;">+</div>
-
-        <!-- Logistics Manager -->
-        <div class="card" style="text-align:center; padding:26px 18px;">
-          <div style="display:flex; justify-content:center; margin-bottom:12px; color:var(--accent3);">
-            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="17" cy="11" r="5.5"/>
-              <path d="M6 31c0-6.1 4.9-11 11-11s11 4.9 11 11"/>
-            </svg>
-          </div>
-          <div style="font-weight:700; font-size:1.05rem; margin-bottom:8px;">Logistics Manager</div>
-          <div style="font-size:.85rem; color:var(--text2); line-height:1.6;">Context · judgment · exception handling · supplier relationships</div>
-        </div>
-
-        <div style="font-size:2.4rem; font-weight:900; color:var(--accent); line-height:1;">=</div>
-
-        <!-- Together -->
-        <div class="card" style="text-align:center; padding:26px 18px; background:linear-gradient(135deg,rgba(26,109,212,.07),rgba(10,143,111,.05)); border-color:rgba(26,109,212,.25);">
-          <div style="display:flex; justify-content:center; margin-bottom:12px; color:var(--accent);">
-            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="13" cy="17" r="8.5"/>
-              <circle cx="21" cy="17" r="8.5"/>
-              <polyline points="14,17 16.5,19.5 20,14"/>
-            </svg>
-          </div>
-          <div style="font-weight:700; font-size:1.05rem; margin-bottom:8px; color:var(--accent);">Together</div>
-          <div style="font-size:.85rem; color:var(--text2); line-height:1.6;">Lower cost · faster decisions · more consistent outcomes</div>
-        </div>
-
-      </div>
-    </div>
-    <div class="slide-abbr" style="margin-top:14px;">
-      <strong>MILP</strong> Mixed-Integer Linear Programme
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════════
      SLIDE 12 — LIMITATIONS & IMPROVEMENTS (part 1)
 ═══════════════════════════════════════════════════════════════ -->
 <div class="slide">
@@ -1386,101 +1315,6 @@ $$+ \gamma^{H-1}\underbrace{\sum_{i,w}\bigl[\gamma^- \delta^{-,H}_{i,w} + \gamma
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════
-     SLIDE 13 — CONCLUSION
-═══════════════════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="slide-inner">
-    <p class="section-label" style="color:var(--accent);">Conclusion</p>
-    <h2 style="margin-bottom:12px;">What We <span class="accent">Delivered</span></h2>
-
-    <!-- Top 3 deliverable cards -->
-    <div class="grid3" style="margin-bottom:14px; gap:14px;">
-
-      <!-- Card 1: Two MILP Formulations -->
-      <div class="card" style="text-align:center; border-top:4px solid var(--accent2); border-left:none;">
-        <div class="concl-card-icon" style="color:var(--accent2);">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="8" width="18" height="21" rx="2.5"/>
-            <rect x="11" y="3" width="18" height="21" rx="2.5" fill="var(--surface)" stroke="currentColor"/>
-            <line x1="15" y1="10" x2="25" y2="10"/><line x1="15" y1="14" x2="25" y2="14"/><line x1="15" y1="18" x2="21" y2="18"/>
-          </svg>
-        </div>
-        <div style="font-weight:700; font-size:1.08rem; margin-bottom:8px;">Two MILP Formulations</div>
-        <p style="font-size:.92rem; line-height:1.6;">Full theoretical model designed for live deployment with stochastic demand; simulation-ready model validated against real January 2026 Towngas data across 26 working days.</p>
-      </div>
-
-      <!-- Card 2: EX Cost Advantage -->
-      <div class="card" style="text-align:center; border-top:4px solid var(--accent3); border-left:none;">
-        <div class="concl-card-icon" style="color:var(--accent3);">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="3,22 10,13 16,17 26,6"/>
-            <polyline points="20,6 26,6 26,12"/>
-            <line x1="3" y1="28" x2="29" y2="28" stroke-width="1.4"/>
-          </svg>
-        </div>
-        <div style="font-weight:700; font-size:1.08rem; margin-bottom:4px;">Proven EX Cost Savings</div>
-        <div style="font-size:2.6rem; font-weight:800; color:var(--accent3); line-height:1.1; margin:4px 0 2px;">~41%</div>
-        <div style="font-size:.7rem; color:var(--text3); text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px;">lower EX cost vs actual operations (27k vs 46k HKD)</div>
-        <p style="font-size:.82rem;">Zero backlog and zero CT overstay across all 26 simulated days.</p>
-      </div>
-
-      <!-- Card 3: Working Prototype -->
-      <div class="card" style="text-align:center; border-top:4px solid var(--accent); border-left:none;">
-        <div class="concl-card-icon" style="color:var(--accent);">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="5" width="26" height="18" rx="2.5"/>
-            <line x1="11" y1="27" x2="21" y2="27"/>
-            <line x1="16" y1="23" x2="16" y2="27"/>
-            <polyline points="10,15 14,19 22,11"/>
-          </svg>
-        </div>
-        <div style="font-weight:700; font-size:1.08rem; margin-bottom:8px;">Working Prototype</div>
-        <p style="font-size:.92rem; line-height:1.6;">Streamlit web application — upload an Excel template, receive a full 7-day decision plan covering CT collections, NP↔TM transfers, and EX actions. Ready for a parallel pilot with real operations today.</p>
-      </div>
-
-    </div>
-
-    <!-- Pain points → solutions table -->
-    <h3 style="font-size:.82rem; text-transform:uppercase; letter-spacing:.06em; color:var(--text3); margin-bottom:8px;">From Pain Points to Solutions</h3>
-    <table>
-      <thead>
-        <tr><th>Pain Point</th><th>Model Component That Addresses It</th><th>Result</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="q-chip" style="background:rgba(108,79,207,.12); color:var(--accent2);">Q1</span>CT collection: when, which, where?</td>
-          <td>Binary $\delta_{c,w,t}$ + CT overstay cost $h^{\mathrm{CT}}$ in objective</td>
-          <td>Cost-optimal collection timing — no overstay in simulation</td>
-        </tr>
-        <tr class="row-tint">
-          <td><span class="q-chip" style="background:rgba(26,109,212,.12); color:var(--accent);">Q2</span>NP ↔ TM transfers under capacity</td>
-          <td>Transfer variables $y^{w\to w'}_{i,t}$ + pallet capacity constraint</td>
-          <td>Pre-positioning aligned to 7-day confirmed demand</td>
-        </tr>
-        <tr>
-          <td><span class="q-chip" style="background:rgba(212,122,10,.12); color:var(--warn);">Q3</span>EX offload/retrieve and pre-positioning</td>
-          <td>$x^{\mathrm{EX}}, n^{\mathrm{EX}}$ variables + $h^{\mathrm{EX}}_d$ cost incentivise lean EX use</td>
-          <td>Lowest EX inventory and offloading cost of all four models</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- Upgraded insight box -->
-    <div class="insight-box-upgraded">
-      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="var(--accent3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="15" cy="15" r="11.5"/>
-        <polyline points="9.5,15 13,18.5 20.5,11"/>
-      </svg>
-      <p style="margin:0; font-size:.94rem; font-weight:600; color:var(--text); line-height:1.55;">A decision-support tool that combines optimisation with managerial expertise — to make <em>consistently better</em> daily inventory decisions at Towngas.</p>
-    </div>
-    <div class="slide-abbr" style="margin-top:10px;">
-      <strong>MILP</strong> Mixed-Integer Linear Programme &nbsp;·&nbsp; <strong>CT</strong> Cargo Terminal &nbsp;·&nbsp; <strong>NP</strong> North Point &nbsp;·&nbsp; <strong>TM</strong> Tuen Mun &nbsp;·&nbsp; <strong>EX</strong> External Warehouse
-    </div>
-
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════════
      SLIDE 16 — THANK YOU
 ═══════════════════════════════════════════════════════════════ -->
 <div class="slide">
@@ -1496,9 +1330,6 @@ $$+ \gamma^{H-1}\underbrace{\sum_{i,w}\bigl[\gamma^- \delta^{-,H}_{i,w} + \gamma
     <h1 style="font-size:4rem; letter-spacing:-.02em; margin-bottom:10px;">Thank You</h1>
     <p class="subtitle" style="margin-bottom:34px; font-size:1.2rem;">We welcome your questions and feedback.</p>
 
-    <p style="font-size:.8rem; color:var(--text3); line-height:1.8;">
-      Department of Industrial Engineering and Decision Analytics, HKUST &nbsp;·&nbsp; May 2026
-    </p>
   </div>
 </div>
 
@@ -1529,17 +1360,15 @@ const slideNames = [
   'Business Challenge: Collection Timing',
   'Theoretical Model: Formulation',
   'Theoretical Model: Constraints',
-  'Does This Work in Practice?',
   'Rolling-Horizon MILP Model',
+  'Does This Work in Practice?',
   'Simulation Methodology',
   'Baseline Models',
   'Results: Cost Comparison',
   'Results: Charts',
   'Prototype Demo',
   'Integration Pipeline',
-  'Closing the Loop',
   'Limitations & Improvements',
-  'Conclusion',
   'Thank You',
 ];
 
@@ -1553,18 +1382,16 @@ const slideSectionMap = [
    0, //  5  Business Challenge: Collection Timing
    2, //  6  Theoretical Model: Formulation
    2, //  7  Theoretical Model: Constraints
-   2, //  8  Does This Work in Practice?
-   1, //  9  Rolling-Horizon MILP Model
+   1, //  8  Rolling-Horizon MILP Model
+   2, //  9  Does This Work in Practice?
    3, // 10  Simulation Methodology
    3, // 11  Baseline Models
    3, // 12  Results: Cost Comparison
    3, // 13  Results: Charts
    4, // 14  Prototype Demo
    4, // 15  Integration Pipeline
-   4, // 16  Closing the Loop
-   5, // 17  Limitations & Improvements
-  6, // 18  Conclusion
-  6, // 19  Thank You
+   5, // 16  Limitations & Improvements
+  6, // 17  Thank You
 ];
 
 function updateSectionFlow() {
