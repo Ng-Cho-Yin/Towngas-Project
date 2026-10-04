@@ -805,42 +805,6 @@ $$+ \gamma^{H-1}\underbrace{\sum_{i,w}\bigl[\gamma^- \delta^{-,H}_{i,w} + \gamma
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════
-     SLIDE 7 — SIMULATION METHODOLOGY + SCOPE ASSUMPTIONS
-═══════════════════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="slide-inner">
-    <p class="section-label" style="color:var(--accent);">Section 3 — Simulation Methodology</p>
-    <h2>Adapting the Model for <span class="accent">Backtesting</span></h2>
-    <div class="grid2" style="align-items:start; gap:18px;">
-      <div>
-        <h3 style="color:var(--text2); font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px;">Scope Choices</h3>
-        <table>
-          <thead><tr><th>Scope Choice</th><th>Reason</th></tr></thead>
-          <tbody>
-            <tr><td><strong>APPL goods only</strong></td><td>Key product category with reliable per-SKU CBM data (~511 items); scope for proof-of-concept — not a model limitation</td></tr>
-            <tr><td><strong>January 2026 (1 month)</strong></td><td>Most complete and recent confirmed dataset; sufficient for rigorous comparison; longer backtest planned as extension</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div>
-        <h3 style="color:var(--text2); font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px;">Data Assumptions</h3>
-        <table>
-          <thead><tr><th>Assumption</th><th>Reason</th></tr></thead>
-          <tbody>
-            <tr><td><strong>SKU volume imputation</strong></td><td>5-tier hierarchy: exact CBM &#8594; category median &#8594; material group &#8594; description-based &#8594; global fallback</td></tr>
-            <tr><td><strong>CT arrival date estimation</strong></td><td>Estimated as collection date &#8722; &#189; &#215; FSP (midpoint assumption); exact manifests not available</td></tr>
-            <tr><td><strong>Free Storage Period mapping</strong></td><td>Confirmed supplier-level FSP table from Towngas (3&#8211;21 days by supplier &#215; origin)</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="slide-abbr" style="margin-top:8px;">
-      <strong>MILP</strong> Mixed-Integer Linear Programme &nbsp;·&nbsp; <strong>APPL</strong> Appliance goods &nbsp;·&nbsp; <strong>CT</strong> Cargo Terminal &nbsp;·&nbsp; <strong>EX</strong> External Warehouse &nbsp;·&nbsp; <strong>FSP</strong> Free Storage Period &nbsp;·&nbsp; <strong>CBM</strong> Cubic Metre
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════════
      SLIDE 8 — BASELINE MODELS
 ═══════════════════════════════════════════════════════════════ -->
 <div class="slide">
@@ -1362,7 +1326,6 @@ const slideNames = [
   'Theoretical Model: Constraints',
   'Rolling-Horizon MILP Model',
   'Does This Work in Practice?',
-  'Simulation Methodology',
   'Baseline Models',
   'Results: Cost Comparison',
   'Results: Charts',
@@ -1384,14 +1347,13 @@ const slideSectionMap = [
    2, //  7  Theoretical Model: Constraints
    1, //  8  Rolling-Horizon MILP Model
    2, //  9  Does This Work in Practice?
-   3, // 10  Simulation Methodology
-   3, // 11  Baseline Models
-   3, // 12  Results: Cost Comparison
-   3, // 13  Results: Charts
-   4, // 14  Prototype Demo
-   4, // 15  Integration Pipeline
-   5, // 16  Limitations & Improvements
-  6, // 17  Thank You
+   3, // 10  Baseline Models
+   3, // 11  Results: Cost Comparison
+   3, // 12  Results: Charts
+   4, // 13  Prototype Demo
+   4, // 14  Integration Pipeline
+   5, // 15  Limitations & Improvements
+  6, // 16  Thank You
 ];
 
 function updateSectionFlow() {
